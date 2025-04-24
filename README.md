@@ -1,54 +1,94 @@
-# React + TypeScript + Vite
+# 🚀 Crypto Price Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A real-time cryptocurrency price dashboard built with **React**, **Redux Toolkit**, and **TypeScript**, showcasing live market updates with a responsive UI. Simulates WebSocket behavior for continuous updates, ideal for learning real-time data flow and Redux architecture.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📹 Demo Walkthrough (2-5 min)
+- Displays dynamic crypto prices with 1h/24h/7d % changes.
+- Simulated WebSocket updates every 2 seconds.
+- Uses Redux DevTools to visualize state changes.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📦 Tech Stack
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+| Layer         | Tech Used                          |
+| ------------- | ---------------------------------- |
+| Frontend      | React, TypeScript, Tailwind CSS    |
+| State Mgmt    | Redux Toolkit, Redux Thunk         |
+| API Data      | CoinGecko API                      |
+| WebSocket Sim | JavaScript `setInterval()`         |
+| Tooling       | Vite, Axios, ESLint, Prettier      |
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🏗️ Architecture Overview
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+src/ ├── app/ # Redux store configuration ├── components/ # Reusable UI components (e.g., CryptoTable) ├── features/ │ └── crypto/ # Redux slice & async thunks ├── mocks/ # Simulated WebSocket logic └── App.tsx # Main component using simulation
+
+yaml
+Copy
+Edit
+
+### 🔁 State Flow
+
+1. App dispatches `fetchCryptoData` on load.
+2. Slice stores asset data in Redux store.
+3. `simulateCryptoUpdates` uses `dispatch` to update state every 2s.
+4. UI re-renders using `useSelector`.
+
+---
+
+## 💻 Setup Instructions
+
+```bash
+# Clone the repo
+git clone https://github.com/your-username/crypto-price-tracker.git
+cd crypto-price-tracker
+
+# Install dependencies
+npm install
+
+# Run the development server
+npm run dev
+⚠️ Make sure you have Node.js ≥ 16.x and npm ≥ 8.x installed.
+
+✨ Features
+✅ Fetch crypto data (CoinGecko)
+✅ Simulate real-time price changes
+✅ Responsive data table with % change coloring
+✅ Live update every 2 seconds
+✅ Redux DevTools support
+✅ TypeScript-safe reducers and actions
+✅ Sparkline placeholder for 7-day trend
+
+🎁 Bonus Features (Optional Implemented)
+✅ Real WebSocket Integration (Binance API): Replace simulated updates with wss://stream.binance.com:9443/ws/btcusdt@ticker
+
+✅ Filters/Sorting: Sort by top gainers/losers, 24h volume, price, etc.
+
+✅ Local Storage Support: Store theme preferences or filters
+
+📊 Example API Used
+https://api.coingecko.com/api/v3/coins/markets
+
+ts
+Copy
+Edit
+params: {
+  vs_currency: 'usd',
+  order: 'market_cap_desc',
+  per_page: 5,
+  page: 1,
+  sparkline: true,
+  price_change_percentage: '1h,24h,7d'
+}
+🧠 Thought Process
+Used Redux Toolkit to simplify slice/reducer logic.
+
+simulateCryptoUpdates() mimics a WebSocket by mutating asset prices with randomness.
+
+Maintained separation of concerns with slice logic in features/crypto, and simulation in mocks/.
+
+Focused on accessibility and responsiveness from the start.
