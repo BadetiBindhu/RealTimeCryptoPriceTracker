@@ -1,0 +1,87 @@
+export const sampleCryptoData = [
+    {
+      id: 1,
+      logo: 'https://cryptologos.cc/logos/bitcoin-btc-logo.png',
+      name: 'Bitcoin',
+      symbol: 'BTC',
+      price: 93759.48,
+      change1h: 0.43,
+      change24h: 0.93,
+      change7d: 11.11,
+      marketCap: 1861618902186,
+      volume24h: 43874950947,
+      supply: '19.85M BTC',
+      chart: '/charts/btc.svg'
+    },
+    {
+      id: 2,
+      logo: 'https://cryptologos.cc/logos/ethereum-eth-logo.png',
+      name: 'Ethereum',
+      symbol: 'ETH',
+      price: 1802.46,
+      change1h: 0.6,
+      change24h: 3.21,
+      change7d: 13.68,
+      marketCap: 217581279327,
+      volume24h: 23547469307,
+      supply: '120.71M ETH',
+      chart: '/charts/eth.svg'
+    },
+    {
+      id: 3,
+      logo: 'https://cryptologos.cc/logos/tether-usdt-logo.png',
+      name: 'Tether',
+      symbol: 'USDT',
+      price: 1.00,
+      change1h: 0.00,
+      change24h: 0.00,
+      change7d: 0.04,
+      marketCap: 145320022085,
+      volume24h: 92288882007,
+      supply: '145.27B USDT',
+      chart: '/charts/usdt.svg'
+    },
+    {
+      id: 4,
+      logo: 'https://cryptologos.cc/logos/xrp-xrp-logo.png',
+      name: 'XRP',
+      symbol: 'XRP',
+      price: 2.22,
+      change1h: 0.46,
+      change24h: 0.54,
+      change7d: 6.18,
+      marketCap: 130073814966,
+      volume24h: 5131481491,
+      supply: '58.39B XRP',
+      chart: '/charts/xrp.svg'
+    },
+    {
+      id: 5,
+      logo: 'https://cryptologos.cc/logos/binance-coin-bnb-logo.png',
+      name: 'BNB',
+      symbol: 'BNB',
+      price: 606.65,
+      change1h: 0.09,
+      change24h: -1.20,
+      change7d: 3.73,
+      marketCap: 85471956947,
+      volume24h: 1874281784,
+      supply: '140.89M BNB',
+      chart: '/charts/bnb.svg'
+    },
+    {
+      id: 6,
+      logo: 'https://cryptologos.cc/logos/solana-sol-logo.png',
+      name: 'Solana',
+      symbol: 'SOL',
+      price: 151.51,
+      change1h: 0.53,
+      change24h: 1.26,
+      change7d: 14.74,
+      marketCap: 78381958631,
+      volume24h: 4881674486,
+      supply: '517.31M SOL',
+      chart: '/charts/sol.svg'
+    }
+  ];
+  
